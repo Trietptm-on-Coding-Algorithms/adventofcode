@@ -1,0 +1,9 @@
+Trying this: 
+
+iex(4)> for dir <- directions do
+...(4)>   case dir do
+...(4)>     '(' -> Floors.go_up
+...(4)>     ')' -> Floors.go_down
+...(4)>     _ -> dir
+...(4)>   end
+...(4)> end
