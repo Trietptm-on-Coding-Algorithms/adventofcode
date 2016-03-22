@@ -75,4 +75,19 @@ defmodule FloorsTest do
     :ok = Floors.process(')())())')
     assert -3 == Floors.floor?
   end
+
+  test ") basements at 1" do
+    :ok = Floors.process(')')
+    assert 1 == Floors.basement?
+  end
+
+  test "()()) basements at 5" do
+    :ok = Floors.process('()())')
+    assert 5 == Floors.basement?
+  end
+
+  test "())() basements at 3" do
+    :ok = Floors.process('())()')
+    assert 3 == Floors.basement?
+  end
 end
