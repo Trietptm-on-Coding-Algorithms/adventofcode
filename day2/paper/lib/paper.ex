@@ -23,6 +23,11 @@ defmodule Paper do
   end
 
   defp list_sides({l, w, h}) do
+    sides = [
+      l*w,
+      w*h,
+      h*l
     ]
+    sides ++ sides
   end
 end
