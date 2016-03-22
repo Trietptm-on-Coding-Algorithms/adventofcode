@@ -1,6 +1,6 @@
 defmodule Paper do
   def make_tuple(dimensions) do
-    dimensions
+    to_string(dimensions)
     |> String.split("x")
     |> strlist_to_int
     |> List.to_tuple
