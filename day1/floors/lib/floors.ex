@@ -16,6 +16,26 @@ defmodule Floors do
   end
 
   def reset do
-    Agent.update(__MODULE__, fn floor -> 0 end)
+    Agent.update(__MODULE__, fn _ -> 0 end)
+  end
+
+  def process(directions) when is_list(directions) do
+    :ok = Floors.reset
+    do_process(directions)
+    Floors.what_floor?
+  end
+
+  def process(directions) do
+    process(to_char_list(directions))
+  end
+
+  defp do_process(directions) do
+    for dir <- directions do
+      case dir do
+        ?( -> Floors.go_up
+        ?) -> Floors.go_down
+        _ -> dir
+      end
+    end
   end
 end

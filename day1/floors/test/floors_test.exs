@@ -30,4 +30,40 @@ defmodule FloorsTest do
     :ok = Floors.reset
     assert 0 == Floors.what_floor?
   end
+
+  test "(()) is floor 0" do
+    assert 0 == Floors.process('(())')
+  end
+
+  test "()() is floor 0" do
+    assert 0 == Floors.process('()()')
+  end
+
+  test "((( is floor 3" do
+    assert 3 == Floors.process('(((')
+  end
+
+  test "(()(()( is floor 3" do
+    assert 3 == Floors.process('(()(()(')
+  end
+
+  test "))((((( is floor 3" do
+    assert 3 == Floors.process('))(((((')
+  end
+
+  test "()) is floor -1" do
+    assert -1 == Floors.process('())')
+  end
+
+  test "))( is floor -1" do
+    assert -1 == Floors.process('))(')
+  end
+
+  test "))) is floor -3" do
+    assert -3 == Floors.process(')))')
+  end
+
+  test ")())()) is floor -3" do
+    assert -3 == Floors.process(')())())')
+  end
 end
