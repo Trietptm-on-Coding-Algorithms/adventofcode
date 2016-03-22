@@ -1,0 +1,2 @@
+defmodule Paper do
+end
