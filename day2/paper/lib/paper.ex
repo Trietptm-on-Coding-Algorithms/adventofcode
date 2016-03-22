@@ -1,4 +1,12 @@
 defmodule Paper do
+  def surface?(dimensions) when is_tuple(dimensions) do
+    list_sides(dimensions)
+    |> Enum.sum
+  end
+  def surface?(dimensions) do
+    make_tuple(dimensions)
+    |> surface?
+  end
   def make_tuple(dimensions) do
     to_string(dimensions)
     |> String.split("x")
