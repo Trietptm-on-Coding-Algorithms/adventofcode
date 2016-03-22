@@ -45,6 +45,11 @@ defmodule Paper do
     make_tuple(dimensions)
     |> ribbon?
   end
+
+  def total_ribbon?(dimensions) do
+    bow?(dimensions) + ribbon?(dimensions)
+  end
+
   # Private methods
   defp make_tuple(dimensions) do
     to_string(dimensions)
