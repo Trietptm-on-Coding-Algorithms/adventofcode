@@ -11,8 +11,8 @@ defmodule Floors do
     Agent.update(__MODULE__, fn floor -> floor-1 end)
   end
 
-  def what_floor? do
     Agent.get(__MODULE__, fn floor -> floor end)
+  def floor? do
   end
 
   def reset do
