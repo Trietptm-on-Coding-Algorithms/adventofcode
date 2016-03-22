@@ -44,11 +44,8 @@ defmodule Floors do
     process(to_char_list(directions))
   end
 
-  defp do_down({floor, 0, operations}) do
-    case floor do
-      0 -> {floor-1, operations+1, operations+1}
-      _ -> {floor-1, 0, operations+1}
-    end
+  defp do_down({0, 0, operations}) do
+    {-1, operations+1, operations+1}
   end
 
   defp do_down({floor, basement, operations}) do
