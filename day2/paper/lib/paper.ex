@@ -23,6 +23,15 @@ defmodule Paper do
     surface?(dimensions) + slack?(dimensions)
   end
 
+  def bow?(dimensions) when is_tuple(dimensions) do
+    dimensions
+    |> Tuple.to_list
+    |> Enum.reduce(fn(x, acc) -> x * acc end)
+  end
+  def bow?(dimensions) do
+    make_tuple(dimensions)
+    |> bow?
+  end
   # Private methods
   defp make_tuple(dimensions) do
     to_string(dimensions)
