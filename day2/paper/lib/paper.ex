@@ -18,6 +18,11 @@ defmodule Paper do
     make_tuple(dimensions)
     |> slack?
   end
+
+  def total?(dimensions) do
+    surface?(dimensions) + slack?(dimensions)
+  end
+
   # Private methods
   defp make_tuple(dimensions) do
     to_string(dimensions)
