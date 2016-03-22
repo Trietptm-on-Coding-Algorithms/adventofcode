@@ -8,7 +8,7 @@ defmodule Mix.Tasks.Paper.Manifest do
     |> Enum.map(&clean_entry(&1))
     |> Enum.map(&Paper.total?(&1))
     |> Enum.sum
-    |> IO.inspect
+    |> IO.puts
   end
 
   defp clean_entry (entry) do
