@@ -1,4 +1,5 @@
 defmodule Paper do
+  # Public methods
   def surface?(dimensions) when is_tuple(dimensions) do
     list_sides(dimensions)
     |> Enum.sum
@@ -7,7 +8,8 @@ defmodule Paper do
     make_tuple(dimensions)
     |> surface?
   end
-  def make_tuple(dimensions) do
+  # Private methods
+  defp make_tuple(dimensions) do
     to_string(dimensions)
     |> String.split("x")
     |> strlist_to_int
@@ -20,11 +22,7 @@ defmodule Paper do
     end
   end
 
-  def make_sides({l, w, h}) do
-    [
-      2*l*w,
-      2*w*h,
-      2*h*l
+  defp list_sides({l, w, h}) do
     ]
   end
 end
