@@ -32,6 +32,19 @@ defmodule Paper do
     make_tuple(dimensions)
     |> bow?
   end
+
+  def ribbon?(dimensions) when is_tuple(dimensions) do
+    dimensions
+    |> Tuple.to_list
+    |> Enum.sort
+    |> List.delete_at(-1)
+    |> Enum.sum
+    |> Kernel.*(2)
+  end
+  def ribbon?(dimensions) do
+    make_tuple(dimensions)
+    |> ribbon?
+  end
   # Private methods
   defp make_tuple(dimensions) do
     to_string(dimensions)
