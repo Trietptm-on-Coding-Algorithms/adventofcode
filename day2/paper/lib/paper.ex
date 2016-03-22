@@ -8,6 +8,16 @@ defmodule Paper do
     make_tuple(dimensions)
     |> surface?
   end
+
+  def slack?(dimensions) when is_tuple(dimensions) do
+    list_sides(dimensions)
+    |> Enum.sort
+    |> List.first
+  end
+  def slack?(dimensions) do
+    make_tuple(dimensions)
+    |> slack?
+  end
   # Private methods
   defp make_tuple(dimensions) do
     to_string(dimensions)
