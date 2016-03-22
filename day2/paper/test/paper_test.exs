@@ -15,7 +15,7 @@ defmodule PaperTest do
   end
 
   test "2x3x4 needs 52 sqft" do
-    assert 52 == Paper.base?({2,3,4})
+    assert 52 == Paper.surface?({2,3,4})
   end
 
   test "1x1x10 totals 43" do
@@ -27,6 +27,6 @@ defmodule PaperTest do
   end
 
   test "1x1x10 needs 42 sqft" do
-    assert 42 == Paper.base?({1,1,10})
+    assert 42 == Paper.surface?({1,1,10})
   end
 end
